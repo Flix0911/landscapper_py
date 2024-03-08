@@ -12,7 +12,9 @@ player = {
 # Weapons list (How does the player level up)
 
 equipment = [
-    {"name": "Teeth", "price": 0, "money": 1}
+    {"name": "Teeth", "price": 0, "money": 1},
+    {"name": "Rusty Scissors", "price": 5, "money": 5}
+
 ]
 
 # Create the character CLASS for the player
@@ -24,9 +26,21 @@ class Character:
         # define your name
         self.name = name
         self.money = 0
+        self.equipment = 0
+    # function for mowing the lawn
     def mow(self, lawn):
-        self.money += 1
-        print(f"{self.name} has mowed 1 lawn and received ${self.money}")
+        # if teeth get 1
+        if self.equipment == 0:
+            self.money += 1
+        # if Rusty Scissors get 5
+        elif self.equipment == 1:
+            self.money += 5
+        print(f"{self.name} has mowed 1 lawn with {equipment[self.equipment]["name"]} and received ${self.money}")
+    # function for upgrading
+    def upgrade(self):
+        if self.equipment < len(equipment) -1:
+            self.equipment += 1
+            print(f"{self.name} upgraded to {equipment[self.equipment]["name"]}")
 
 # Create a character CLASS for the lawn
 class Lawn:
@@ -35,10 +49,9 @@ class Lawn:
     def __init__(self):
         self.money = 1
 
-# General functions
-        
-# mowing function
 
+# General functions
+    
 
     # Win condition
 
@@ -55,7 +68,7 @@ lawn = Lawn()
     # Input loops
 while(True):
     # text for input
-    choice = input(f"Hi {player.name}! Do you want to [m]ow the law or [q]uit")
+    choice = input(f"Hi {player.name}! Do you want to [m]ow the lawn, [u]grade your equipment, or [q]uit")
 
     # choice to mow
     if (choice == "m"):
@@ -63,6 +76,8 @@ while(True):
 
 
     # choice to upgrade
+    if (choice == "u"):
+        player.upgrade()
 
     # choice to quit
     if (choice == "q"):

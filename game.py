@@ -14,9 +14,9 @@ player = {
 equipment = [
     {"name": "Teeth", "price": 0, "money": 1},
     {"name": "Rusty Scissors", "price": 5, "money": 5},
-    {"name": "Old Timey Push mower", "price": 25, "money": 50}
-
-
+    {"name": "Old Timey Push mower", "price": 25, "money": 50},
+    {"name": "Fancy Battery Powered Lawnmower", "price": 250, "money": 100},
+    {"name": "Starving Students", "price": 500, "money": 250}
 ]
 
 # Create the character CLASS for the player
@@ -35,10 +35,16 @@ class Character:
         if self.equipment == 0:
             self.money += 1
         # if Rusty Scissors get 5
-        if self.equipment == 1:
+        elif self.equipment == 1:
             self.money += 5
-        if self.equipment == 2:
+        # push mower
+        elif self.equipment == 2:
             self.money += 50
+        # battery mower
+        elif self.equipment == 3:
+            self.money += 100
+        elif self.equipment == 4:
+            self.money += 250
         print(f"{self.name} has mowed 1 lawn with {equipment[self.equipment]["name"]} and received ${self.money}")
     # function for upgrading
     def upgrade(self):

@@ -51,6 +51,15 @@ class Character:
         if self.equipment < len(equipment) -1:
             self.equipment += 1
             print(f"{self.name} upgraded to {equipment[self.equipment]["name"]}")
+    # function for winning
+    def win(self):
+        if (self.equipment == 4 and self.money >= 1000):
+            print(f"Congratulations, {self.name}'s mowing business rules the block. You win")
+            return True
+        return False
+        
+
+        
 
 # Create a character CLASS for the lawn
 class Lawn:
@@ -92,4 +101,8 @@ while(True):
     # choice to quit
     if (choice == "q"):
         print("No mowing today")
+        break
+
+    # win condition
+    if player.win():
         break

@@ -13,7 +13,9 @@ player = {
 
 equipment = [
     {"name": "Teeth", "price": 0, "money": 1},
-    {"name": "Rusty Scissors", "price": 5, "money": 5}
+    {"name": "Rusty Scissors", "price": 5, "money": 5},
+    {"name": "Old Timey Push mower", "price": 25, "money": 50}
+
 
 ]
 
@@ -33,8 +35,10 @@ class Character:
         if self.equipment == 0:
             self.money += 1
         # if Rusty Scissors get 5
-        elif self.equipment == 1:
+        if self.equipment == 1:
             self.money += 5
+        if self.equipment == 2:
+            self.money += 50
         print(f"{self.name} has mowed 1 lawn with {equipment[self.equipment]["name"]} and received ${self.money}")
     # function for upgrading
     def upgrade(self):

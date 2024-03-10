@@ -57,6 +57,11 @@ class Character:
             print(f"Congratulations, {self.name}'s mowing business rules the block. You win")
             return True
         return False
+    # function for restarting
+    def restart(self):
+        self.money = 0
+        self.equipment = 0
+        print(f"{self.name} has restarted the game. You now have ${self.money} and your tool is {equipment[self.equipment]["name"]}")
         
 
         
@@ -87,7 +92,7 @@ lawn = Lawn()
     # Input loops
 while(True):
     # text for input
-    choice = input(f"Hi {player.name}! Do you want to [m]ow the lawn, [u]grade your equipment, or [q]uit")
+    choice = input(f"Hi {player.name}! Do you want to [m]ow the lawn, [u]grade your equipment, [q]uit, or [r]estart")
 
     # choice to mow
     if (choice == "m"):
@@ -106,3 +111,7 @@ while(True):
     # win condition
     if player.win():
         break
+
+    # restart condition
+    if (choice == "r"):
+        player.restart()
